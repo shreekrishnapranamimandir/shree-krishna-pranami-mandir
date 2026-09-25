@@ -478,6 +478,119 @@ footer p{
         padding:55px 15px;
     }
 }
+    /* ================= MOBILE SCREEN FIX ================= */
+
+html,
+body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+}
+
+img{
+    max-width:100%;
+}
+
+section,
+header,
+footer{
+    max-width:100%;
+    overflow-x:hidden;
+}
+
+.container{
+    width:100%;
+    max-width:1120px;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+    .nav{
+        width:100%;
+        max-width:100%;
+        padding-left:12px;
+        padding-right:12px;
+    }
+
+    .logo{
+        max-width:100%;
+    }
+
+    .logo h2{
+        max-width:calc(100vw - 85px);
+        word-wrap:break-word;
+    }
+
+    nav{
+        max-width:100%;
+        display:flex;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    nav a{
+        white-space:nowrap;
+    }
+
+    .hero{
+        width:100%;
+        max-width:100%;
+        min-height:560px;
+        padding:70px 15px;
+        background-size:cover;
+        background-position:center center;
+    }
+
+    .hero-content{
+        width:100%;
+        max-width:100%;
+    }
+
+    .hero h1{
+        max-width:100%;
+        word-wrap:break-word;
+    }
+
+    .hero p{
+        max-width:100%;
+        word-wrap:break-word;
+    }
+
+    .about,
+    .features,
+    .event-grid,
+    .gallery,
+    .contact{
+        width:100%;
+        max-width:100%;
+    }
+
+    .card,
+    .feature,
+    .event{
+        max-width:100%;
+        overflow:hidden;
+    }
+
+    .gallery img{
+        max-width:100%;
+    }
+
+    /* Digital Granth */
+    #granth{
+        width:100%;
+        max-width:100%;
+        overflow:hidden;
+    }
+
+    #granth .container{
+        padding-left:0;
+        padding-right:0;
+    }
+}
 </style>
 </head>
 <body>
