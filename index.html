@@ -591,6 +591,47 @@ footer{
         padding-right:0;
     }
 }
+    /* ================= FULL SCREEN PHOTO ================= */
+
+.gallery figure{
+    cursor:pointer;
+}
+
+.photo-overlay{
+    display:none;
+    position:fixed;
+    z-index:9999;
+    inset:0;
+    background:rgba(0,0,0,.92);
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.photo-overlay.active{
+    display:flex;
+}
+
+.photo-overlay img{
+    max-width:95vw;
+    max-height:90vh;
+    width:auto;
+    height:auto;
+    object-fit:contain;
+    border-radius:8px;
+    box-shadow:0 10px 40px rgba(0,0,0,.5);
+}
+
+.photo-close{
+    position:absolute;
+    top:18px;
+    right:25px;
+    color:white;
+    font-size:42px;
+    font-weight:bold;
+    cursor:pointer;
+    line-height:1;
+}
 </style>
 </head>
 <body>
@@ -827,5 +868,49 @@ footer{
 </section>
 </main>
 <footer><div class="footer-title">श्री राधा कृष्ण प्रणामी मंदिर (परमहंस पीठ सत्संग धाम), राजापुर, पटना</div><p>॥ श्री राधा कृष्ण प्रणामी मंदिर ॥</p><p style="margin-top:8px;font-size:13px">© 2026 Shree Krishna Pranami Mandir. सर्वाधिकार सुरक्षित।</p></footer>
+<!-- ================= PHOTO FULL SCREEN ================= -->
+
+<div class="photo-overlay" id="photoOverlay">
+    <span class="photo-close" onclick="closePhoto()">×</span>
+    <img id="fullPhoto" src="" alt="बड़ी तस्वीर">
+</div>
+
+<script>
+
+const galleryImages = document.querySelectorAll('.gallery img');
+const photoOverlay = document.getElementById('photoOverlay');
+const fullPhoto = document.getElementById('fullPhoto');
+
+galleryImages.forEach(function(image){
+
+    image.addEventListener('click', function(){
+
+        fullPhoto.src = this.src;
+        fullPhoto.alt = this.alt;
+
+        photoOverlay.classList.add('active');
+
+    });
+
+});
+
+function closePhoto(){
+
+    photoOverlay.classList.remove('active');
+    fullPhoto.src = "";
+
+}
+
+photoOverlay.addEventListener('click', function(event){
+
+    if(event.target === photoOverlay){
+        closePhoto();
+    }
+
+});
+
+</script>
+
+<!-- ================= END PHOTO FULL SCREEN ================= -->
 </body>
 </html>
